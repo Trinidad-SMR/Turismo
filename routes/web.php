@@ -14,7 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-Route::resource('zonasturisticas' , 'ZonaTuristicaController');
+Route::resource('zonaTuristica' , 'ZonaTuristicaController');
+Route::resource('historia' , 'HistoriaController');
+Route::resource('hospedaje' , 'HospedajeController');
+Route::resource('restaurante' , 'RestauranteController');
+Route::resource('galeria' , 'GaleriaController');
+Route::resource('actividad' , 'ActividadController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

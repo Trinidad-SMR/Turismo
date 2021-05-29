@@ -15,7 +15,7 @@ class CreateHistoriasTable extends Migration
     {
         Schema::create('historias', function (Blueprint $table) {
             $table->id();
-            $table->text('Historia')->nullable();
+            $table->text('Historia');
             $table->timestamps();
         });
     }

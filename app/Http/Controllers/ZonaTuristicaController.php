@@ -15,8 +15,8 @@ class ZonaTuristicaController extends Controller
      */
     public function index()
     {
-        $zonasturisticas = ZonaTuristica::paginate(2);
-        return view( 'zonasturisticas.index' , compact('zonasturisticas'));
+        $zonaTuristica = ZonaTuristica::paginate(2);
+        return view( 'zonaTuristica.index' , compact('zonaTuristica'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ZonaTuristicaController extends Controller
      */
     public function create()
     {
-        return view('zonasturisticas.create');
+        return view('zonaTuristica.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class ZonaTuristicaController extends Controller
     public function store(Request $request)
     {
         ZonaTuristica::create($request->all());
-        return redirect()->route('zonasturisticas.index');
+        return redirect()->route('zonaTuristica.index');
     }
 
     /**
@@ -47,9 +47,9 @@ class ZonaTuristicaController extends Controller
      * @param  \App\ZonaTuristica  $zonaTuristica
      * @return \Illuminate\Http\Response
      */
-    public function show(ZonaTuristica $zonaturistica)
+    public function show(ZonaTuristica $zonaTuristica)
     {
-        //
+        return view('zonaTuristica.show', compact('zonaTuristica'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ZonaTuristicaController extends Controller
     public function edit(ZonaTuristica $zonaTuristica)
     {
         $zonaTuristica = ZonaTuristica::find($zonaTuristica->id);
-        return view('zonasturisticas.edit', compact('zonaTuristica'));
+        return view('zonaTuristica.edit', compact('zonaTuristica'));
     }
 
     /**
@@ -84,11 +84,11 @@ class ZonaTuristicaController extends Controller
             );
 
             */
-            $zonaturistica->update($request->all());
+            $zonaTuristica->update($request->all());
 
     
 
-            return redirect()->route('zonasturisticas.index');
+            return redirect()->route('zonaTuristica.index');
     }
 
     /**
@@ -99,6 +99,8 @@ class ZonaTuristicaController extends Controller
      */
     public function destroy(ZonaTuristica $zonaTuristica)
     {
-        //
+        $zonaTuristica->delete();
+
+        return redirect()->route('zonaTuristica.index');
     }
 }

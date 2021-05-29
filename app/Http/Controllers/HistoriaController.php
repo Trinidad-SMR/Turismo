@@ -14,7 +14,9 @@ class HistoriaController extends Controller
      */
     public function index()
     {
-        //
+        $histo = Historia::all();
+        return view('Historia.index' , compact('histo'));
+
     }
 
     /**

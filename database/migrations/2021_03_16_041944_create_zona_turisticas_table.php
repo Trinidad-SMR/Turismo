@@ -16,7 +16,7 @@ class CreateZonaTuristicasTable extends Migration
         Schema::create('zona_turisticas', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre', '100');
-            $table->text('Descripcion')->nullable();
+            $table->text('Descripcion');
             $table->string('Direccion');
             $table->string('Horario');
             $table->string('Actividades');
